@@ -1,0 +1,70 @@
+CREATE TABLE incomingmoneytable (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  CommitteeName VARCHAR(255),
+  RPT_YR INT,
+  RPT_TYPE VARCHAR(255),
+  EventDate DATE,
+  Amount DECIMAL(10,2),
+  ContributorName VARCHAR(255),
+  Address VARCHAR(255),
+  CityStateZip VARCHAR(255),
+  Occupation VARCHAR(255),
+  Typ VARCHAR(255),
+  InKindDesc VARCHAR(255),
+  extra VARCHAR(255),
+  INDEX idx_all_cols (CommitteeName, RPT_YR, RPT_TYPE, EventDate, Amount, ContributorName, Address, CityStateZip, Occupation, Typ, InKindDesc, extra),
+  UNIQUE (id, CommitteeName, RPT_YR, RPT_TYPE, EventDate, ContributorName, Amount)
+);
+
+
+
+CREATE TABLE outgoingmoneytable (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  CommitteeName VARCHAR(255),
+  RPT_YR INT,
+  RPT_TYPE VARCHAR(255),
+  eventDate DATE,
+  Amount DECIMAL(10,2),
+  ExpensePaidTo VARCHAR(255),
+  Address VARCHAR(255),
+  CityStateZip VARCHAR(255),
+  Purpose VARCHAR(255),
+  TypReimb VARCHAR(255),
+  Extra VARCHAR(255),
+  INDEX idx_all_cols (CommitteeName, RPT_YR, RPT_TYPE, eventDate, Amount, ExpensePaidTo, Address, CityStateZip, Purpose, TypReimb, Extra),
+  UNIQUE (id, CommitteeName, RPT_YR, RPT_TYPE, eventDate, Amount, ExpensePaidTo)
+);
+
+
+
+use below they are final:
+
+CREATE TABLE incomingmoneytable (
+  CommitteeName VARCHAR(255),
+  RPT_YR INT,
+  RPT_TYPE VARCHAR(255),
+  EventDate DATE,
+  Amount DECIMAL(10,2),
+  ContributorName VARCHAR(255),
+  Address VARCHAR(255),
+  CityStateZip VARCHAR(255),
+  Occupation VARCHAR(255),
+  Typ VARCHAR(255),
+  InKindDesc VARCHAR(255),
+  extra VARCHAR(255)
+);
+
+
+CREATE TABLE outgoingmoneytable (
+  CommitteeName VARCHAR(255),
+  RPT_YR INT,
+  RPT_TYPE VARCHAR(255),
+  eventDate DATE,
+  Amount DECIMAL(10,2),
+  ExpensePaidTo VARCHAR(255),
+  Address VARCHAR(255),
+  CityStateZip VARCHAR(255),
+  Purpose VARCHAR(255),
+  TypReimb VARCHAR(255),
+  Extra VARCHAR(255)
+);
